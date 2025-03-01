@@ -63,11 +63,9 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 [dotnet-highperf-apis] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**[dotnet-highperf-apis]** is a project that demonstrates best practices about how to build high-performance APIs using .NET Core.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -100,11 +98,240 @@ For more information on the importance of a professional README for your reposit
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+Designing high-performance RESTful APIs in .NET Core requires careful consideration of various factors, including architecture, coding practices, and infrastructure. Below are some **best practices** to help you build efficient, scalable, and maintainable APIs:
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+---
+
+### 1. **Use Asynchronous Programming**
+   - **Why**: Asynchronous programming allows your API to handle more requests by freeing up threads while waiting for I/O-bound operations (e.g., database queries, file I/O, or external API calls).
+   - **How**: Use `async` and `await` for all I/O-bound operations.
+   - **Example**:
+     ```csharp
+     public async Task<IActionResult> GetItemAsync(int id)
+     {
+         var item = await _repository.GetItemByIdAsync(id);
+         if (item == null)
+         {
+             return NotFound();
+         }
+         return Ok(item);
+     }
+     ```
+
+---
+
+### 2. **Optimize Database Access**
+   - **Use Efficient Queries**: Write optimized SQL queries or use an ORM like Entity Framework Core efficiently (e.g., avoid `SELECT *`).
+   - **Use Indexing**: Ensure proper indexing on frequently queried columns.
+   - **Pagination**: Implement pagination for large datasets to reduce response size and improve performance.
+     ```csharp
+     public async Task<IActionResult> GetItemsAsync(int page = 1, int pageSize = 10)
+     {
+         var items = await _repository.GetItemsAsync(page, pageSize);
+         return Ok(items);
+     }
+     ```
+
+---
+
+### 3. **Use Caching**
+   - **Why**: Caching reduces the load on your server and database by serving frequently requested data from memory.
+   - **How**:
+     - Use in-memory caching (`IMemoryCache`) for small, frequently accessed data.
+     - Use distributed caching (e.g., Redis) for scalable applications.
+   - **Example**:
+     ```csharp
+     public async Task<IActionResult> GetItemAsync(int id)
+     {
+         if (_memoryCache.TryGetValue($"Item_{id}", out var item))
+         {
+             return Ok(item);
+         }
+
+         item = await _repository.GetItemByIdAsync(id);
+         if (item == null)
+         {
+             return NotFound();
+         }
+
+         _memoryCache.Set($"Item_{id}", item, TimeSpan.FromMinutes(5));
+         return Ok(item);
+     }
+     ```
+
+---
+
+### 4. **Minimize Payload Size**
+   - **Why**: Smaller payloads reduce network latency and improve response times.
+   - **How**:
+     - Use compression (e.g., Gzip or Brotli) for responses.
+     - Return only the necessary fields (e.g., use DTOs or projection).
+   - **Example**:
+     ```csharp
+     public async Task<IActionResult> GetItemSummaryAsync(int id)
+     {
+         var item = await _repository.GetItemSummaryByIdAsync(id);
+         if (item == null)
+         {
+             return NotFound();
+         }
+         return Ok(item);
+     }
+     ```
+
+---
+
+### 5. **Use Proper HTTP Methods and Status Codes**
+   - **Why**: Proper use of HTTP methods and status codes improves API usability and clarity.
+   - **How**:
+     - Use `GET` for retrieving data, `POST` for creating resources, `PUT`/`PATCH` for updates, and `DELETE` for deletions.
+     - Return appropriate HTTP status codes (e.g., `200 OK`, `201 Created`, `400 Bad Request`, `404 Not Found`, `500 Internal Server Error`).
+
+---
+
+### 6. **Implement Rate Limiting**
+   - **Why**: Rate limiting prevents abuse and ensures fair usage of your API.
+   - **How**: Use middleware like `AspNetCoreRateLimit` to enforce rate limits.
+   - **Example**:
+     ```csharp
+     services.AddMemoryCache();
+     services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+     services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+     services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+     services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+     ```
+
+---
+
+### 7. **Enable Compression**
+   - **Why**: Compressing responses reduces bandwidth usage and improves performance.
+   - **How**: Use middleware to enable response compression.
+   - **Example**:
+     ```csharp
+     services.AddResponseCompression(options =>
+     {
+         options.EnableForHttps = true;
+     });
+
+     app.UseResponseCompression();
+     ```
+
+---
+
+### 8. **Use Dependency Injection**
+   - **Why**: Dependency Injection (DI) promotes loose coupling and makes your code more testable and maintainable.
+   - **How**: Register services in the DI container and inject them into controllers or other services.
+   - **Example**:
+     ```csharp
+     services.AddScoped<IItemRepository, ItemRepository>();
+     ```
+
+---
+
+### 9. **Monitor and Log**
+   - **Why**: Monitoring and logging help you identify performance bottlenecks and errors.
+   - **How**:
+     - Use logging frameworks like Serilog or NLog.
+     - Use Application Performance Monitoring (APM) tools like Application Insights or Prometheus.
+   - **Example**:
+     ```csharp
+     public async Task<IActionResult> GetItemAsync(int id)
+     {
+         _logger.LogInformation("Fetching item with ID {Id}", id);
+         var item = await _repository.GetItemByIdAsync(id);
+         if (item == null)
+         {
+             _logger.LogWarning("Item with ID {Id} not found", id);
+             return NotFound();
+         }
+         return Ok(item);
+     }
+     ```
+
+---
+
+### 10. **Use API Versioning**
+   - **Why**: Versioning ensures backward compatibility and allows you to evolve your API without breaking existing clients.
+   - **How**: Use libraries like `Microsoft.AspNetCore.Mvc.Versioning`.
+   - **Example**:
+     ```csharp
+     services.AddApiVersioning(options =>
+     {
+         options.DefaultApiVersion = new ApiVersion(1, 0);
+         options.AssumeDefaultVersionWhenUnspecified = true;
+         options.ReportApiVersions = true;
+     });
+     ```
+
+---
+
+### 11. **Secure Your API**
+   - **Why**: Security is critical to protect sensitive data and prevent unauthorized access.
+   - **How**:
+     - Use HTTPS to encrypt data in transit.
+     - Implement authentication (e.g., JWT, OAuth2) and authorization.
+     - Validate and sanitize all inputs to prevent injection attacks.
+   - **Example**:
+     ```csharp
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddJwtBearer(options =>
+             {
+                 options.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     ValidateIssuer = true,
+                     ValidateAudience = true,
+                     ValidateLifetime = true,
+                     ValidateIssuerSigningKey = true,
+                     ValidIssuer = Configuration["Jwt:Issuer"],
+                     ValidAudience = Configuration["Jwt:Audience"],
+                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                 };
+             });
+     ```
+
+---
+
+### 12. **Load Testing and Profiling**
+   - **Why**: Load testing helps identify performance bottlenecks under heavy traffic.
+   - **How**:
+     - Use tools like Apache JMeter, k6, or Visual Studio Load Test.
+     - Profile your application using tools like dotTrace or Visual Studio Diagnostic Tools.
+
+---
+
+### 13. **Use Content Delivery Networks (CDNs)**
+   - **Why**: CDNs cache static assets closer to users, reducing latency and server load.
+   - **How**: Serve static files (e.g., images, CSS, JS) through a CDN.
+
+---
+
+### 14. **Optimize Startup and Middleware**
+   - **Why**: Reducing startup time and middleware overhead improves performance.
+   - **How**:
+     - Minimize the number of middleware components.
+     - Use `AddControllers` instead of `AddMvc` if you don't need Razor Pages or Views.
+     - **Example**:
+       ```csharp
+       services.AddControllers();
+       ```
+
+---
+
+### 15. **Use Health Checks**
+   - **Why**: Health checks help monitor the status of your API and dependencies.
+   - **How**: Use the built-in health checks middleware.
+   - **Example**:
+     ```csharp
+     services.AddHealthChecks()
+             .AddDbContextCheck<AppDbContext>();
+
+     app.UseHealthChecks("/health");
+     ```
+
+---
+
+### Summary
+By following these best practices, you can design high-performance RESTful APIs in .NET Core that are scalable, secure, and maintainable. Focus on asynchronous programming, efficient database access, caching, and monitoring to ensure optimal performance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
