@@ -565,9 +565,13 @@ By following these best practices, you can design high-performance RESTful APIs 
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
+Prerequisites
 
-To get a local copy up and running, follow these steps.
+[.NET SDK](https://dotnet.microsoft.com/download)
+
+[Visual Studio](https://visualstudio.microsoft.com/) with ASP.NET Core workload.
+
+[GitHub Copilot](https://copilot.github.com/) and [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) installed and configured.
 
 ### Prerequisites
 
@@ -582,7 +586,11 @@ Example command:
  -->
 
 ### Setup
+Enable AI Tools:
 
+Install and enable GitHub Copilot and IntelliCode from the Visual Studio Marketplace.
+
+Configure Copilot with your GitHub account and IntelliCode with your preferences.
 Clone this repository to your desired folder:
 
 <!--
