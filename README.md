@@ -66,7 +66,8 @@ For more information on the importance of a professional README for your reposit
 # 📖 [dotnet-highperf-apis] <a name="about-project"></a>
 
 **[dotnet-highperf-apis]** is a project that demonstrates best practices about how to build high-performance APIs using .NET Core.
-
+E-Commerce Application with .NET and AI Tools
+This project demonstrates how to create a high-performance e-commerce application from scratch using .NET and leverage AI tools like GitHub Copilot and IntelliCode to accelerate development. The application includes a frontend (Razor Pages or MVC) and a backend (RESTful APIs) with a focus on scalability, performance, and maintainability.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -99,6 +100,15 @@ For more information on the importance of a professional README for your reposit
 ### Key Features <a name="key-features"></a>
 
 Designing high-performance RESTful APIs in .NET Core requires careful consideration of various factors, including architecture, coding practices, and infrastructure. Below are some **best practices** to help you build efficient, scalable, and maintainable APIs:
+
+Frontend: Razor Pages or MVC for a responsive user interface.
+
+Backend: RESTful APIs built with ASP.NET Core for high performance and scalability.
+
+AI Tools: Leverage GitHub Copilot and IntelliCode for code generation, unit testing, and debugging.
+
+High-Performance Practices: Asynchronous programming, caching, database optimization, and more.
+
 
 ---
 ### 0. **Use AI Tools to create the app from scratch
