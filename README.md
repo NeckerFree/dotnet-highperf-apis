@@ -101,7 +101,7 @@ This project demonstrates how to create a high-performance e-commerce applicatio
 
 Designing high-performance RESTful APIs in .NET Core requires careful consideration of various factors, including architecture, coding practices, and infrastructure. Below are some **best practices** to help you build efficient, scalable, and maintainable APIs:
 
-Frontend: Razor Pages or MVC for a responsive user interface.
+Frontend: React TS for a responsive user interface.
 
 Backend: RESTful APIs built with ASP.NET Core for high performance and scalability.
 
@@ -109,14 +109,12 @@ AI Tools: Leverage GitHub Copilot and IntelliCode for code generation, unit test
 
 High-Performance Practices: Asynchronous programming, caching, database optimization, and more.
 
-
----
-### 0. **Use AI Tools to create the app from scratch
+### 1. **Use AI Tools to create the app from scratch
 Creating an e-commerce application from scratch using .NET and leveraging integrated AI tools in Visual Studio (like GitHub Copilot and IntelliCode) can significantly accelerate development. Below is a step-by-step guide to help you take full advantage of these tools:
 
 ---
 
-### **Step 1: Set Up Your Development Environment**
+#### **Step 1: Set Up Your Development Environment**
 1. **Install Visual Studio**:
    - Download and install the latest version of Visual Studio with the .NET workload.
    - Ensure you have the necessary components for web development (e.g., ASP.NET Core).
@@ -131,7 +129,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 2: Design the Application Architecture**
+#### **Step 2: Design the Application Architecture**
 1. **Define the Core Components**:
    - **Models**: Product, Order, Cart, User, etc.
    - **Controllers**: ProductController, OrderController, CartController, etc.
@@ -148,7 +146,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 3: Implement the Product Catalog**
+#### **Step 3: Implement the Product Catalog**
 1. **Create the Product Model**:
    - Use Copilot to generate the `Product` class:
      ```csharp
@@ -176,7 +174,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 4: Implement the Shopping Cart**
+#### **Step 4: Implement the Shopping Cart**
 1. **Create the Cart Model**:
    - Use Copilot to generate the `Cart` and `CartItem` classes:
      ```csharp
@@ -208,7 +206,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 5: Implement User Authentication**
+#### **Step 5: Implement User Authentication**
 1. **Scaffold Identity**:
    - Use Visual Studio's built-in Identity scaffolding to add user authentication.
    - Enhance the generated code with Copilot to customize the login, registration, and profile management pages.
@@ -225,7 +223,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 6: Implement Order Processing**
+#### **Step 6: Implement Order Processing**
 1. **Create the Order Model**:
    - Use Copilot to generate the `Order` and `OrderItem` classes:
      ```csharp
@@ -252,7 +250,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 7: Use IntelliCode for Code Quality**
+#### **Step 7: Use IntelliCode for Code Quality**
 1. **Leverage IntelliCode Suggestions**:
    - As you write code, IntelliCode will provide context-aware suggestions for methods, properties, and parameters.
    - Use its recommendations to improve code quality and adhere to best practices.
@@ -262,7 +260,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 8: Automate Testing with AI**
+#### **Step 8: Automate Testing with AI**
 1. **Generate Unit Tests**:
    - Use Copilot to generate unit tests for your controllers, services, and models.
    - For example, type:
@@ -276,7 +274,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 9: Deploy the Application**
+#### **Step 9: Deploy the Application**
 1. **Set Up CI/CD**:
    - Use GitHub Actions or Azure DevOps to automate the build and deployment process.
    - Use Copilot to generate the pipeline configuration file.
@@ -286,7 +284,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Step 10: Document and Share**
+#### **Step 10: Document and Share**
 1. **Document the Process**:
    - Use Copilot to generate documentation for your application, including setup instructions and usage guidelines.
 
@@ -296,7 +294,7 @@ Creating an e-commerce application from scratch using .NET and leveraging integr
 
 ---
 
-### **Example: Using Copilot to Generate a Product Service**
+#### **Example: Using Copilot to Generate a Product Service**
 ```csharp
 // Prompt: Generate a ProductService class with methods to get all products, get a product by ID, and add a new product
 public class ProductService
@@ -317,8 +315,7 @@ public class ProductService
 
 ---
 
-By following these steps and leveraging AI tools like GitHub Copilot and IntelliCode, you can significantly accelerate the development of your e-commerce application while maintaining high code quality. Happy coding! 🚀
-### 1. **Use Asynchronous Programming**
+### 2. **Use Asynchronous Programming**
    - **Why**: Asynchronous programming allows your API to handle more requests by freeing up threads while waiting for I/O-bound operations (e.g., database queries, file I/O, or external API calls).
    - **How**: Use `async` and `await` for all I/O-bound operations.
    - **Example**:
@@ -336,7 +333,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 2. **Optimize Database Access**
+### 3. **Optimize Database Access**
    - **Use Efficient Queries**: Write optimized SQL queries or use an ORM like Entity Framework Core efficiently (e.g., avoid `SELECT *`).
    - **Use Indexing**: Ensure proper indexing on frequently queried columns.
    - **Pagination**: Implement pagination for large datasets to reduce response size and improve performance.
@@ -350,7 +347,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 3. **Use Caching**
+### 4. **Use Caching**
    - **Why**: Caching reduces the load on your server and database by serving frequently requested data from memory.
    - **How**:
      - Use in-memory caching (`IMemoryCache`) for small, frequently accessed data.
@@ -377,7 +374,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 4. **Minimize Payload Size**
+### 5. **Minimize Payload Size**
    - **Why**: Smaller payloads reduce network latency and improve response times.
    - **How**:
      - Use compression (e.g., Gzip or Brotli) for responses.
@@ -397,7 +394,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 5. **Use Proper HTTP Methods and Status Codes**
+### 6. **Use Proper HTTP Methods and Status Codes**
    - **Why**: Proper use of HTTP methods and status codes improves API usability and clarity.
    - **How**:
      - Use `GET` for retrieving data, `POST` for creating resources, `PUT`/`PATCH` for updates, and `DELETE` for deletions.
@@ -405,7 +402,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 6. **Implement Rate Limiting**
+### 7. **Implement Rate Limiting**
    - **Why**: Rate limiting prevents abuse and ensures fair usage of your API.
    - **How**: Use middleware like `AspNetCoreRateLimit` to enforce rate limits.
    - **Example**:
@@ -419,7 +416,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 7. **Enable Compression**
+### 8. **Enable Compression**
    - **Why**: Compressing responses reduces bandwidth usage and improves performance.
    - **How**: Use middleware to enable response compression.
    - **Example**:
@@ -434,7 +431,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 8. **Use Dependency Injection**
+### 9. **Use Dependency Injection**
    - **Why**: Dependency Injection (DI) promotes loose coupling and makes your code more testable and maintainable.
    - **How**: Register services in the DI container and inject them into controllers or other services.
    - **Example**:
@@ -444,7 +441,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 9. **Monitor and Log**
+### 10. **Monitor and Log**
    - **Why**: Monitoring and logging help you identify performance bottlenecks and errors.
    - **How**:
      - Use logging frameworks like Serilog or NLog.
@@ -466,7 +463,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 10. **Use API Versioning**
+### 11. **Use API Versioning**
    - **Why**: Versioning ensures backward compatibility and allows you to evolve your API without breaking existing clients.
    - **How**: Use libraries like `Microsoft.AspNetCore.Mvc.Versioning`.
    - **Example**:
@@ -481,7 +478,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 11. **Secure Your API**
+### 12. **Secure Your API**
    - **Why**: Security is critical to protect sensitive data and prevent unauthorized access.
    - **How**:
      - Use HTTPS to encrypt data in transit.
@@ -507,7 +504,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 12. **Load Testing and Profiling**
+### 13. **Load Testing and Profiling**
    - **Why**: Load testing helps identify performance bottlenecks under heavy traffic.
    - **How**:
      - Use tools like Apache JMeter, k6, or Visual Studio Load Test.
@@ -515,13 +512,13 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 13. **Use Content Delivery Networks (CDNs)**
+### 14. **Use Content Delivery Networks (CDNs)**
    - **Why**: CDNs cache static assets closer to users, reducing latency and server load.
    - **How**: Serve static files (e.g., images, CSS, JS) through a CDN.
 
 ---
 
-### 14. **Optimize Startup and Middleware**
+### 15. **Optimize Startup and Middleware**
    - **Why**: Reducing startup time and middleware overhead improves performance.
    - **How**:
      - Minimize the number of middleware components.
@@ -533,7 +530,7 @@ By following these steps and leveraging AI tools like GitHub Copilot and Intelli
 
 ---
 
-### 15. **Use Health Checks**
+### 16. **Use Health Checks**
    - **Why**: Health checks help monitor the status of your API and dependencies.
    - **How**: Use the built-in health checks middleware.
    - **Example**:
