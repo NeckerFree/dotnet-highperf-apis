@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1941BB7-EFA8-4A46-BF09-291AF419429C}|HighPerformance.Persistence\\HighPerformance.Persistence.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.persistence\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1941BB7-EFA8-4A46-BF09-291AF419429C}|HighPerformance.Persistence\\HighPerformance.Persistence.csproj|solutionrelative:highperformance.persistence\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,45 +62,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:66:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T02:08:40.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Api\\Program.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
-              "RelativeToolTip": "HighPerformance.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T02:04:59.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppDbContextFactory.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Persistence\\AppDbContextFactory.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Persistence\\AppDbContextFactory.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Persistence\\AppDbContextFactory.cs",
-              "RelativeToolTip": "HighPerformance.Persistence\\AppDbContextFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T02:02:30.473Z",
-              "EditorCaption": ""
             }
           ]
         }
