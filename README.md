@@ -709,7 +709,12 @@ If you like this project...
 > Give credit to everyone who inspired your codebase.
 
 I would like to thank...
-
+[How I Code with GitHub Copilot in Visual Studio 2022 to Boost Productivity Everyday](https://youtu.be/Z6BYhJl9hV8)
+Copilot commads:
+[Get better answers by setting the context for GitHub Copilot Chat in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
+Copilot Documentation:
+[GH Copilot Documentation](https://docs.github.com/en/copilot)
+[Copilot Best Practice](https://www.youtube.com/watch?v=2q0BoioYSxQ)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
