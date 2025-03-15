@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|Solution Items{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|Solution Items{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1941BB7-EFA8-4A46-BF09-291AF419429C}|HighPerformance.Persistence\\HighPerformance.Persistence.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.persistence\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1941BB7-EFA8-4A46-BF09-291AF419429C}|HighPerformance.Persistence\\HighPerformance.Persistence.csproj|solutionrelative:highperformance.persistence\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,6 +83,67 @@
             {
               "$type": "Bookmark",
               "Name": "ST:66:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\Program.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs*",
+              "RelativeToolTip": "HighPerformance.Api\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T03:51:43.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Persistence\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Persistence\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Persistence\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "HighPerformance.Persistence\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T03:45:04.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAFICAAAAAAAAAAAUwGACAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-15T03:33:38.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "HighPerformance.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-15T03:24:47.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T02:59:22.686Z"
             }
           ]
         }
