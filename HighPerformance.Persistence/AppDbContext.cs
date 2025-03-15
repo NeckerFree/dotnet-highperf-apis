@@ -20,7 +20,7 @@ namespace HighPerformance.Persistence
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=HighPerformance.db");
+                optionsBuilder.UseSqlite("Data Source=C:/Database/HighPerformance.db");
             }
         }
 
