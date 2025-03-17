@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HighPerformance.Domain\HighPerformance.Domain.csproj" />
-    <ProjectReference Include="..\HighPerformance.Infrastructure\HighPerformance.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -619,7 +619,7 @@ Build the api project
   dotnet build
   dotnet run 
 ```
-Open the URL http://localhost:5278/swagger/index.html to see endpoints
+Open the URL https://localhost:7001/swagger/index.html to see endpoints
 
 ### Usage
 

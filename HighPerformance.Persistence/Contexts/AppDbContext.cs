@@ -1,7 +1,7 @@
 using HighPerformance.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HighPerformance.Persistence
+namespace HighPerformance.Persistence.Contexts
 {
     public class AppDbContext : DbContext
     {
