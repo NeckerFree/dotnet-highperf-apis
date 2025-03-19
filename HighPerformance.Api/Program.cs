@@ -1,6 +1,7 @@
 using HighPerformance.Application;
 using HighPerformance.Application.Interfaces;
 using HighPerformance.Application.Products.Commands;
+using HighPerformance.Persistence;
 using HighPerformance.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,13 +16,23 @@ builder.Services.AddApplication();
 //builder.Services.AddInfrastructure();
 
 // Register Persistence Layer services
-//builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateProductCommand).Assembly)); // Fix the error here
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetProductCommand).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateProductCommand).Assembly));
 
 builder.Services.AddControllers();
 
-
+// Add CORS policy
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", policy =>
+//    {
+//        policy.AllowAnyOrigin()
+//              .AllowAnyMethod()
+//              .AllowAnyHeader();
+//    });
+//});
 
 var app = builder.Build();
 

@@ -1,102 +1,86 @@
-﻿
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
+using HighPerformance.Application.Products.Commands;
+using HighPerformance.Application.Products.Queries;
+using HighPerformance.Domain.Entities;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
-//namespace HighPerformance.Api.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class ProductsController : ControllerBase
-//    {
-//        private readonly AppDbContext _context;
+namespace HighPerformance.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
+    {
+        private readonly IMediator _mediator;
 
-//        public ProductsController(AppDbContext context)
-//        {
-//            _context = context;
-//        }
+        public ProductsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
-//        // GET: api/Products
-//        [HttpGet]
-//        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-//        {
-//            return await _context.Products.ToListAsync();
-//        }
+        // GET: api/Products
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        {
+            var query = new GetProductsQuery();
+            var products = await _mediator.Send(query);
+            return Ok(products);
+        }
 
-//        // GET: api/Products/5
-//        [HttpGet("{id}")]
-//        public async Task<ActionResult<Product>> GetProduct(int id)
-//        {
-//            var product = await _context.Products.FindAsync(id);
+        // GET: api/Products/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+            var query = new GetProductByIdQuery { Id = id };
+            var product = await _mediator.Send(query);
 
-//            if (product == null)
-//            {
-//                return NotFound();
-//            }
+            if (product == null)
+            {
+                return NotFound();
+            }
 
-//            return product;
-//        }
+            return Ok(product);
+        }
 
-//        // PUT: api/Products/5
-//        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-//        [HttpPut("{id}")]
-//        public async Task<IActionResult> PutProduct(int id, Product product)
-//        {
-//            if (id != product.Id)
-//            {
-//                return BadRequest();
-//            }
+        // POST: api/Products
+        [HttpPost]
+        public async Task<ActionResult<Product>> PostProduct(CreateProductCommand command)
+        {
+            var product = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetProduct), new { id = product }, product);
+        }
 
-//            _context.Entry(product).State = EntityState.Modified;
+        // PUT: api/Products/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProduct(int id, UpdateProductCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
 
-//            try
-//            {
-//                await _context.SaveChangesAsync();
-//            }
-//            catch (DbUpdateConcurrencyException)
-//            {
-//                if (!ProductExists(id))
-//                {
-//                    return NotFound();
-//                }
-//                else
-//                {
-//                    throw;
-//                }
-//            }
+            var result = await _mediator.Send(command);
 
-//            return NoContent();
-//        }
+            if (!result)
+            {
+                return NotFound();
+            }
 
-//        // POST: api/Products
-//        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-//        [HttpPost]
-//        public async Task<ActionResult<Product>> PostProduct(Product product)
-//        {
-//            _context.Products.Add(product);
-//            await _context.SaveChangesAsync();
+            return NoContent();
+        }
 
-//            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
-//        }
+        // DELETE: api/Products/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var command = new DeleteProductCommand { Id = id };
+            var result = await _mediator.Send(command);
 
-//        // DELETE: api/Products/5
-//        [HttpDelete("{id}")]
-//        public async Task<IActionResult> DeleteProduct(int id)
-//        {
-//            var product = await _context.Products.FindAsync(id);
-//            if (product == null)
-//            {
-//                return NotFound();
-//            }
+            if (!result)
+            {
+                return NotFound();
+            }
 
-//            _context.Products.Remove(product);
-//            await _context.SaveChangesAsync();
-
-//            return NoContent();
-//        }
-
-//        private bool ProductExists(int id)
-//        {
-//            return _context.Products.Any(e => e.Id == id);
-//        }
-//    }
-//}
+            return NoContent();
+        }
+    }
+}
