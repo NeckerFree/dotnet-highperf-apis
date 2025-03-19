@@ -1,10 +1,11 @@
 ﻿using HighPerformance.Application.Interfaces;
+using HighPerformance.Application.Products.Commands;
 using HighPerformance.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HighPerformance.Application.Products.Commands
+namespace HighPerformance.Application.Products.Handlers
 {
     public class CreateProductCommandHandler(IProductRepository repository) : IRequestHandler<CreateProductCommand, int>
     {

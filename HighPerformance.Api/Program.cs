@@ -1,6 +1,5 @@
 using HighPerformance.Application;
 using HighPerformance.Application.Interfaces;
-using HighPerformance.Application.Products.Commands;
 using HighPerformance.Persistence;
 using HighPerformance.Persistence.Repositories;
 
@@ -18,8 +17,6 @@ builder.Services.AddApplication();
 // Register Persistence Layer services
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetProductCommand).Assembly));
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateProductCommand).Assembly));
 
 builder.Services.AddControllers();
 

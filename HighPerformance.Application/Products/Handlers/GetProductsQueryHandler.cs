@@ -1,11 +1,12 @@
 using HighPerformance.Application.Interfaces;
+using HighPerformance.Application.Products.Queries;
 using HighPerformance.Domain.Entities;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HighPerformance.Application.Products.Queries
+namespace HighPerformance.Application.Products.Handlers
 {
 
     public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, IEnumerable<Product>>
