@@ -14,19 +14,19 @@ namespace HighPerformance.Api.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(CancellationToken cancellationToken, [FromQuery] int pageNumber=1, [FromQuery] int pageSize=10)
         {
-            var query = new GetProductsQuery();
-            var products = await mediator.Send(query);
+            var query = new GetProductsQuery { PageNumber=pageNumber, PageSize=pageSize};
+            var products = await mediator.Send(query, cancellationToken);
             return Ok(products);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDto>> GetProduct(int id)
+        public async Task<ActionResult<ProductDto>> GetProduct(int id, CancellationToken cancellationToken)
         {
             var query = new GetProductByIdQuery { Id = id };
-            var product = await mediator.Send(query);
+            var product = await mediator.Send(query, cancellationToken);
 
             if (product == null)
             {
