@@ -1,23 +1,19 @@
 using HighPerformance.Application;
 using HighPerformance.Application.Interfaces;
+using HighPerformance.Application.Mappings;
 using HighPerformance.Persistence;
 using HighPerformance.Persistence.Repositories;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddInfrastructure();
 // Register Application Layer services
 builder.Services.AddApplication();
-
-// Register Infrastructure Layer services
-//builder.Services.AddInfrastructure();
 
 // Register Persistence Layer services
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
+builder.Services.AddAutoMapper(typeof(ProductProfile).Assembly);
 builder.Services.AddControllers();
 
 // Add CORS policy

@@ -3,13 +3,8 @@
 namespace HighPerformance.Domain.Events
 {
 
-    public class ProductCreatedEvent
+    public class ProductCreatedEvent(Product product)
     {
-        public Product Product { get; }
-
-        public ProductCreatedEvent(Product product)
-        {
-            Product = product;
-        }
+        public Product Product { get; } = product;
     }
 }

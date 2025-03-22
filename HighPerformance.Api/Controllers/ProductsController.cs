@@ -1,3 +1,4 @@
+using HighPerformance.Application.DTOs;
 using HighPerformance.Application.Products.Commands;
 using HighPerformance.Application.Products.Queries;
 using HighPerformance.Domain.Entities;
@@ -8,30 +9,24 @@ namespace HighPerformance.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-
-        public ProductsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
         {
             var query = new GetProductsQuery();
-            var products = await _mediator.Send(query);
+            var products = await mediator.Send(query);
             return Ok(products);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
             var query = new GetProductByIdQuery { Id = id };
-            var product = await _mediator.Send(query);
+            var product = await mediator.Send(query);
 
             if (product == null)
             {
@@ -43,9 +38,9 @@ namespace HighPerformance.Api.Controllers
 
         // POST: api/Products
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(CreateProductCommand command)
+        public async Task<ActionResult<ProductDto>> PostProduct(CreateProductCommand command)
         {
-            var product = await _mediator.Send(command);
+            var product = await mediator.Send(command);
             return CreatedAtAction(nameof(GetProduct), new { id = product }, product);
         }
 
@@ -58,7 +53,7 @@ namespace HighPerformance.Api.Controllers
                 return BadRequest();
             }
 
-            var result = await _mediator.Send(command);
+            var result = await mediator.Send(command);
 
             if (!result)
             {
@@ -73,7 +68,7 @@ namespace HighPerformance.Api.Controllers
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var command = new DeleteProductCommand { Id = id };
-            var result = await _mediator.Send(command);
+            var result = await mediator.Send(command);
 
             if (!result)
             {

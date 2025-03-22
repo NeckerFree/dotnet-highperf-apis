@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\products\\commands\\getproductsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\products\\commands\\getproductsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|Solution Items{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|Solution Items{2B02F114-BCBE-440D-8DA0-73257F4FD00A}|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\products\\commands\\createproductcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\products\\commands\\createproductcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\products\\handlers\\getproductsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\products\\handlers\\getproductsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\mappings\\productprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\mappings\\productprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\highperformance.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\highperformance.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.api\\highperformance.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CFFDB8D3-272B-46C8-855C-9CECC949465A}|HighPerformance.Api\\HighPerformance.Api.csproj|solutionrelative:highperformance.api\\highperformance.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|c:\\elio\\development\\projects\\dotnet\\dotnet-highperf-apis\\highperformance.application\\products\\queries\\getproductbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54F7A082-311B-4ECA-9702-50E0A063A45E}|HighPerformance.Application\\HighPerformance.Application.csproj|solutionrelative:highperformance.application\\products\\queries\\getproductbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,54 +98,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetProductsQueryHandler.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Commands\\GetProductsQueryHandler.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Application\\Products\\Commands\\GetProductsQueryHandler.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Commands\\GetProductsQueryHandler.cs",
-              "RelativeToolTip": "HighPerformance.Application\\Products\\Commands\\GetProductsQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs*",
+              "RelativeToolTip": "HighPerformance.Api\\Controllers\\ProductsController.cs*",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwCgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T03:57:40.287Z",
+              "WhenOpened": "2025-03-22T03:00:38.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Api\\Program.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs*",
-              "RelativeToolTip": "HighPerformance.Api\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ProductProfile.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Mappings\\ProductProfile.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Application\\Mappings\\ProductProfile.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Mappings\\ProductProfile.cs",
+              "RelativeToolTip": "HighPerformance.Application\\Mappings\\ProductProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T03:35:22.362Z",
+              "WhenOpened": "2025-03-22T02:54:44.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetProductsQueryHandler.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Handlers\\GetProductsQueryHandler.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Application\\Products\\Handlers\\GetProductsQueryHandler.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Handlers\\GetProductsQueryHandler.cs",
+              "RelativeToolTip": "HighPerformance.Application\\Products\\Handlers\\GetProductsQueryHandler.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T02:53:48.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HighPerformance.Api",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\HighPerformance.Api.csproj",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\HighPerformance.Api.csproj",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\HighPerformance.Api.csproj",
+              "RelativeToolTip": "HighPerformance.Api\\HighPerformance.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-22T02:50:50.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CreateProductCommand.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Commands\\CreateProductCommand.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Application\\Products\\Commands\\CreateProductCommand.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Commands\\CreateProductCommand.cs",
-              "RelativeToolTip": "HighPerformance.Application\\Products\\Commands\\CreateProductCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Api\\Program.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Program.cs",
+              "RelativeToolTip": "HighPerformance.Api\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T03:33:19.106Z",
+              "WhenOpened": "2025-03-22T02:39:09.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HighPerformance.Application",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\HighPerformance.Application.csproj",
+              "RelativeDocumentMoniker": "HighPerformance.Application\\HighPerformance.Application.csproj",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\HighPerformance.Application.csproj",
+              "RelativeToolTip": "HighPerformance.Application\\HighPerformance.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-22T02:26:10.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetProductByIdQuery.cs",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Queries\\GetProductByIdQuery.cs",
+              "RelativeDocumentMoniker": "HighPerformance.Application\\Products\\Queries\\GetProductByIdQuery.cs",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Application\\Products\\Queries\\GetProductByIdQuery.cs",
+              "RelativeToolTip": "HighPerformance.Application\\Products\\Queries\\GetProductByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T02:26:50.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "HighPerformance.Api\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T03:22:29.974Z",
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Elio\\Development\\Projects\\Dotnet\\dotnet-highperf-apis\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAOwCAAAAAAAAAAAiwPkCAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-22T02:19:26.869Z",
               "EditorCaption": ""
             }
           ]
