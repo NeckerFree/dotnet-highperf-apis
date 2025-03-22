@@ -1,10 +1,9 @@
 ﻿using HighPerformance.Application.DTOs;
 using MediatR;
-
+using System.Collections.Generic;
 namespace HighPerformance.Application.Products.Queries
 {
-    public class GetProductByIdQuery : IRequest<ProductDto>
+    public class GetProductsQuery : IRequest<IEnumerable<ProductDto>>
     {
-        public int Id { get; set; }
     }
 }

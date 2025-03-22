@@ -751,3 +751,278 @@ This project is [MIT](./LICENSE) licensed.
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+Your code is already following a clean architecture approach by using MediatR to decouple the controller from the business logic. However, there are a few improvements and best practices you can consider to make the code more robust, maintainable, and aligned with Clean Architecture principles:
+
+---
+
+### 1. **Use DTOs (Data Transfer Objects) Instead of Exposing Domain Entities**
+  
+
+   Update the `GetProductsQuery` to return `List<ProductDto>` instead of `List<Product>`.
+
+   ```csharp
+   public class GetProductsQuery : IRequest<List<ProductDto>> { }
+   ```
+
+   Update the controller to return `List<ProductDto>`:
+   ```csharp
+   [HttpGet]
+   public async Task<ActionResult<List<ProductDto>>> GetProducts()
+   {
+       var query = new GetProductsQuery();
+       var products = await _mediator.Send(query);
+       return Ok(products);
+   }
+   ```
+
+---
+
+### 2. **Add Validation for Input Parameters**
+   - If your queries or commands accept parameters, ensure they are validated. You can use FluentValidation or data annotations to validate inputs.
+
+   **Example:**
+   ```csharp
+   public class GetProductByIdQuery : IRequest<ProductDto>
+   {
+       public int Id { get; set; }
+   }
+
+   public class GetProductByIdQueryValidator : AbstractValidator<GetProductByIdQuery>
+   {
+       public GetProductByIdQueryValidator()
+       {
+           RuleFor(x => x.Id).GreaterThan(0).WithMessage("Id must be greater than 0.");
+       }
+   }
+   ```
+
+   In the controller:
+   ```csharp
+   [HttpGet("{id}")]
+   public async Task<ActionResult<ProductDto>> GetProductById(int id)
+   {
+       var query = new GetProductByIdQuery { Id = id };
+       var validator = new GetProductByIdQueryValidator();
+       var validationResult = await validator.ValidateAsync(query);
+
+       if (!validationResult.IsValid)
+       {
+           return BadRequest(validationResult.Errors);
+       }
+
+       var product = await _mediator.Send(query);
+       return Ok(product);
+   }
+   ```
+
+---
+
+### 3. **Use Cancellation Tokens**
+   - Pass `CancellationToken` to async methods to allow for graceful cancellation of requests.
+
+   **Example:**
+   ```csharp
+   [HttpGet]
+   public async Task<ActionResult<List<ProductDto>>> GetProducts(CancellationToken cancellationToken)
+   {
+       var query = new GetProductsQuery();
+       var products = await _mediator.Send(query, cancellationToken);
+       return Ok(products);
+   }
+   ```
+
+---
+
+### 4. **Add Pagination for Large Data Sets**
+   - If the `GetProducts` endpoint can return a large number of records, consider adding pagination to improve performance and usability.
+
+   **Example:**
+   ```csharp
+   public class GetProductsQuery : IRequest<List<ProductDto>>
+   {
+       public int PageNumber { get; set; } = 1;
+       public int PageSize { get; set; } = 10;
+   }
+   ```
+
+   Update the controller to accept pagination parameters:
+   ```csharp
+   [HttpGet]
+   public async Task<ActionResult<List<ProductDto>>> GetProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+   {
+       var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
+       var products = await _mediator.Send(query);
+       return Ok(products);
+   }
+   ```
+
+---
+
+### 5. **Use a Base Controller for Common Functionality**
+   - If you have multiple controllers, consider creating a base controller to encapsulate common functionality like error handling or logging.
+
+   **Example:**
+   ```csharp
+   public class BaseController : ControllerBase
+   {
+       protected readonly IMediator _mediator;
+
+       public BaseController(IMediator mediator)
+       {
+           _mediator = mediator;
+       }
+
+       protected async Task<ActionResult<T>> HandleQuery<T>(IRequest<T> query)
+       {
+           var result = await _mediator.Send(query);
+           return Ok(result);
+       }
+   }
+
+   public class ProductsController : BaseController
+   {
+       public ProductsController(IMediator mediator) : base(mediator) { }
+
+       [HttpGet]
+       public async Task<ActionResult<List<ProductDto>>> GetProducts()
+       {
+           var query = new GetProductsQuery();
+           return await HandleQuery(query);
+       }
+   }
+   ```
+
+---
+
+### 6. **Add Logging**
+   - Add logging to track important events or errors in your application.
+
+   **Example:**
+   ```csharp
+   public class ProductsController : BaseController
+   {
+       private readonly ILogger<ProductsController> _logger;
+
+       public ProductsController(IMediator mediator, ILogger<ProductsController> logger) : base(mediator)
+       {
+           _logger = logger;
+       }
+
+       [HttpGet]
+       public async Task<ActionResult<List<ProductDto>>> GetProducts()
+       {
+           _logger.LogInformation("Fetching all products");
+           var query = new GetProductsQuery();
+           return await HandleQuery(query);
+       }
+   }
+   ```
+
+---
+
+### 7. **Add Exception Handling**
+   - Use a global exception handler or middleware to handle exceptions consistently across your application.
+
+   **Example:**
+   ```csharp
+   public class ExceptionHandlingMiddleware
+   {
+       private readonly RequestDelegate _next;
+       private readonly ILogger<ExceptionHandlingMiddleware> _logger;
+
+       public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
+       {
+           _next = next;
+           _logger = logger;
+       }
+
+       public async Task InvokeAsync(HttpContext context)
+       {
+           try
+           {
+               await _next(context);
+           }
+           catch (Exception ex)
+           {
+               _logger.LogError(ex, "An unhandled exception occurred.");
+               context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+               await context.Response.WriteAsync("An unexpected error occurred.");
+           }
+       }
+   }
+   ```
+
+   Register the middleware in `Startup.cs` or `Program.cs`:
+   ```csharp
+   app.UseMiddleware<ExceptionHandlingMiddleware>();
+   ```
+
+---
+
+### 8. **Use Dependency Injection for Validators**
+   - Instead of manually creating validator instances, register them in the DI container and inject them into the controller.
+
+   **Example:**
+   ```csharp
+   services.AddScoped<IValidator<GetProductByIdQuery>, GetProductByIdQueryValidator>();
+   ```
+
+   Inject the validator into the controller:
+   ```csharp
+   private readonly IValidator<GetProductByIdQuery> _validator;
+
+   public ProductsController(IMediator mediator, IValidator<GetProductByIdQuery> validator)
+   {
+       _mediator = mediator;
+       _validator = validator;
+   }
+   ```
+
+---
+
+### Final Improved Code:
+```csharp
+[Route("api/[controller]")]
+[ApiController]
+public class ProductsController : BaseController
+{
+    private readonly ILogger<ProductsController> _logger;
+    private readonly IValidator<GetProductByIdQuery> _validator;
+
+    public ProductsController(IMediator mediator, ILogger<ProductsController> logger, IValidator<GetProductByIdQuery> validator) : base(mediator)
+    {
+        _logger = logger;
+        _validator = validator;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<ProductDto>>> GetProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, CancellationToken cancellationToken = default)
+    {
+        _logger.LogInformation("Fetching all products");
+        var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
+        return await HandleQuery(query, cancellationToken);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ProductDto>> GetProductById(int id, CancellationToken cancellationToken = default)
+    {
+        var query = new GetProductByIdQuery { Id = id };
+        var validationResult = await _validator.ValidateAsync(query, cancellationToken);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+
+        return await HandleQuery(query, cancellationToken);
+    }
+}
+```
+
+---
+
+These improvements will make your code more maintainable, scalable, and aligned with Clean Architecture principles.
