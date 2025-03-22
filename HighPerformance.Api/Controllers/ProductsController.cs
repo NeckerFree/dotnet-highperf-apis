@@ -1,3 +1,4 @@
+using HighPerformance.Api.Controllers.HighPerformance.Api.Controllers;
 using HighPerformance.Application.DTOs;
 using HighPerformance.Application.Products.Commands;
 using HighPerformance.Application.Products.Queries;
@@ -8,42 +9,41 @@ using Microsoft.AspNetCore.Mvc;
 namespace HighPerformance.Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController(IMediator mediator) : ControllerBase
+    public class ProductsController(IMediator mediator) : BaseController(mediator)
     {
-
+        private readonly IMediator _mediator = mediator;
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(CancellationToken cancellationToken, [FromQuery] int pageNumber=1, [FromQuery] int pageSize=10)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(
+            CancellationToken cancellationToken, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var query = new GetProductsQuery { PageNumber=pageNumber, PageSize=pageSize};
-            var products = await mediator.Send(query, cancellationToken);
-            return Ok(products);
+            var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
+            return await HandleRequest(query, cancellationToken);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDto>> GetProduct(int id, CancellationToken cancellationToken)
+        public async Task<ActionResult<ProductDto>> GetProduct( int id, CancellationToken cancellationToken)
         {
             var query = new GetProductByIdQuery { Id = id };
-            var product = await mediator.Send(query, cancellationToken);
+            var product = await HandleRequest(query, cancellationToken);
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return product;
         }
 
         // POST: api/Products
+        
         [HttpPost]
         public async Task<ActionResult<ProductDto>> PostProduct(CreateProductCommand command)
         {
-            var product = await mediator.Send(command);
-            return CreatedAtAction(nameof(GetProduct), new { id = product }, product);
+            var product = await _mediator.Send(command); // product is of type ProductDto
+            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
-
         // PUT: api/Products/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, UpdateProductCommand command)
@@ -53,14 +53,7 @@ namespace HighPerformance.Api.Controllers
                 return BadRequest();
             }
 
-            var result = await mediator.Send(command);
-
-            if (!result)
-            {
-                return NotFound();
-            }
-
-            return NoContent();
+            return await HandleNoContentRequest(command);
         }
 
         // DELETE: api/Products/5
@@ -68,14 +61,7 @@ namespace HighPerformance.Api.Controllers
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var command = new DeleteProductCommand { Id = id };
-            var result = await mediator.Send(command);
-
-            if (!result)
-            {
-                return NotFound();
-            }
-
-            return NoContent();
+            return await HandleNoContentRequest(command);
         }
     }
 }
