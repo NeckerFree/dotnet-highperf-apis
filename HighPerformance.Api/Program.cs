@@ -1,10 +1,14 @@
+using HighPerformance.Api.Logger;
+using HighPerformance.Api.Middleware;
 using HighPerformance.Application;
 using HighPerformance.Application.Interfaces;
 using HighPerformance.Application.Mappings;
 using HighPerformance.Persistence;
 using HighPerformance.Persistence.Repositories;
 var builder = WebApplication.CreateBuilder(args);
-
+// Register the custom file logger provider
+builder.Logging.ClearProviders(); // Clear default providers
+builder.Logging.AddProvider(new FileLoggerProvider($"Logs/log-{DateTime.Now:yyyy-MM-dd}.txt"));
 builder.Services.AddSwaggerGen();
 
 // Register Application Layer services
@@ -35,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

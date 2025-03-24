@@ -2,14 +2,13 @@ using HighPerformance.Api.Controllers.HighPerformance.Api.Controllers;
 using HighPerformance.Application.DTOs;
 using HighPerformance.Application.Products.Commands;
 using HighPerformance.Application.Products.Queries;
-using HighPerformance.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HighPerformance.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductsController(IMediator mediator) : BaseController(mediator)
+    public class ProductsController(IMediator mediator, ILogger logger) : BaseController(mediator)
     {
         private readonly IMediator _mediator = mediator;
         // GET: api/Products
@@ -17,6 +16,7 @@ namespace HighPerformance.Api.Controllers
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(
             CancellationToken cancellationToken, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
+            logger.LogInformation($"Fetching all products");
             var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
             return await HandleRequest(query, cancellationToken);
         }
@@ -25,6 +25,10 @@ namespace HighPerformance.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> GetProduct( int id, CancellationToken cancellationToken)
         {
+            if (id == 0)
+            {
+                throw new Exception("product id has to be grather than zero"); 
+            }
             var query = new GetProductByIdQuery { Id = id };
             var product = await HandleRequest(query, cancellationToken);
 
