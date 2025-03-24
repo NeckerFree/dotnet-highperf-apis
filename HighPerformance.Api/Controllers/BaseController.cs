@@ -7,17 +7,9 @@
     {
         [ApiController]
         [Route("api/[controller]")]
-        public abstract class BaseController : ControllerBase
+        public abstract class BaseController(IMediator mediator) : ControllerBase
         {
-            protected readonly IMediator Mediator;
-            private readonly ILogger _logger;
-
-            // Constructor to accept IMediator and ILogger
-            protected BaseController(IMediator mediator, ILogger logger)
-            {
-                Mediator = mediator;
-                _logger = logger;
-            }
+            protected readonly IMediator Mediator = mediator;
 
             /// <summary>
             /// Handles sending a MediatR request and returning an appropriate response.
@@ -29,7 +21,6 @@
             protected async Task<ActionResult<TResponse>> HandleRequest<TResponse>(
                 IRequest<TResponse> request, CancellationToken cancellationToken = default)
             {
-                _logger.LogInformation($"Handling request of type {request.GetType().Name}");
                 var response = await Mediator.Send(request, cancellationToken);
                 return Ok(response);
             }
@@ -46,7 +37,6 @@
             protected async Task<ActionResult<TResponse>> HandleCreateRequest<TResponse>(
                 IRequest<TResponse> request, string actionName, object routeValues, CancellationToken cancellationToken = default)
             {
-                _logger.LogInformation($"Handling request of type {request.GetType().Name}");
                 var response = await Mediator.Send(request, cancellationToken);
                 return CreatedAtAction(actionName, routeValues, response);
             }
@@ -60,7 +50,6 @@
             protected async Task<IActionResult> HandleNoContentRequest(
                 IRequest<bool> request, CancellationToken cancellationToken = default)
             {
-                _logger.LogInformation($"Handling no-content request of type {request.GetType().Name}");
                 var result = await Mediator.Send(request, cancellationToken);
                 return result ? NoContent() : NotFound();
             }

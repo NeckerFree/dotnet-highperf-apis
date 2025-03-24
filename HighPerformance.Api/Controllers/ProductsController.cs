@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HighPerformance.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductsController(IMediator mediator, ILogger<ProductsController> logger) : BaseController(mediator, logger)
+    public class ProductsController(IMediator mediator, ILogger<ProductsController> logger) : BaseController(mediator)
     {
         private readonly ILogger<ProductsController> _logger = logger;
 
