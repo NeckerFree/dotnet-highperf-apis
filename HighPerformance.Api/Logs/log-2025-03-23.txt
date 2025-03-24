@@ -1,7 +1,0 @@
- 2025-03-23 22:59:50.792 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7001
- 2025-03-23 22:59:50.801 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5278
- 2025-03-23 22:59:50.893 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
- 2025-03-23 22:59:50.893 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
- 2025-03-23 22:59:50.895 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Elio\Development\Projects\Dotnet\dotnet-highperf-apis\HighPerformance.Api
- 2025-03-23 23:00:07.930 [Error] HighPerformance.Api.Middleware.ExceptionHandlingMiddleware: An unhandled exception occurred.
- 2025-03-23 23:00:41.021 [Error] HighPerformance.Api.Middleware.ExceptionHandlingMiddleware: An unhandled exception occurred.

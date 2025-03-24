@@ -8,15 +8,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace HighPerformance.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductsController(IMediator mediator, ILogger logger) : BaseController(mediator)
+    public class ProductsController(IMediator mediator, ILogger<ProductsController> logger) : BaseController(mediator, logger)
     {
-        private readonly IMediator _mediator = mediator;
+        private readonly ILogger<ProductsController> _logger = logger;
+
         // GET: api/Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(
             CancellationToken cancellationToken, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            logger.LogInformation($"Fetching all products");
+            _logger.LogInformation($"Fetching all products");
             var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
             return await HandleRequest(query, cancellationToken);
         }
@@ -25,10 +26,6 @@ namespace HighPerformance.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> GetProduct( int id, CancellationToken cancellationToken)
         {
-            if (id == 0)
-            {
-                throw new Exception("product id has to be grather than zero"); 
-            }
             var query = new GetProductByIdQuery { Id = id };
             var product = await HandleRequest(query, cancellationToken);
 
@@ -45,7 +42,7 @@ namespace HighPerformance.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductDto>> PostProduct(CreateProductCommand command)
         {
-            var product = await _mediator.Send(command); // product is of type ProductDto
+            var product = await base.Mediator.Send(command); // product is of type ProductDto
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
         // PUT: api/Products/5

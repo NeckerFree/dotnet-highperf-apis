@@ -6,9 +6,6 @@ using HighPerformance.Application.Mappings;
 using HighPerformance.Persistence;
 using HighPerformance.Persistence.Repositories;
 var builder = WebApplication.CreateBuilder(args);
-// Register the custom file logger provider
-builder.Logging.ClearProviders(); // Clear default providers
-builder.Logging.AddProvider(new FileLoggerProvider($"Logs/log-{DateTime.Now:yyyy-MM-dd}.txt"));
 builder.Services.AddSwaggerGen();
 
 // Register Application Layer services
@@ -19,6 +16,9 @@ builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddAutoMapper(typeof(ProductProfile).Assembly);
 builder.Services.AddControllers();
+// Register the custom file logger provider
+builder.Logging.ClearProviders(); // Clear default providers
+builder.Logging.AddProvider(new FileLoggerProvider($"Logs/log-{DateTime.Now:yyyy-MM-dd}.txt"));
 
 // Add CORS policy
 //builder.Services.AddCors(options =>
@@ -39,10 +39,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 
