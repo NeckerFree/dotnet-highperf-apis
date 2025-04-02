@@ -770,69 +770,8 @@ Your code is already following a clean architecture approach by using MediatR to
 ### 5. **Use a Base Controller for Common Functionality**
  
 ### 6. **Add Logging**
-   - Add logging to track important events or errors in your application.
-
-   **Example:**
-   ```csharp
-   public class ProductsController : BaseController
-   {
-       private readonly ILogger<ProductsController> _logger;
-
-       public ProductsController(IMediator mediator, ILogger<ProductsController> logger) : base(mediator)
-       {
-           _logger = logger;
-       }
-
-       [HttpGet]
-       public async Task<ActionResult<List<ProductDto>>> GetProducts()
-       {
-           _logger.LogInformation("Fetching all products");
-           var query = new GetProductsQuery();
-           return await HandleQuery(query);
-       }
-   }
-   ```
-
----
 
 ### 7. **Add Exception Handling**
-   - Use a global exception handler or middleware to handle exceptions consistently across your application.
-
-   **Example:**
-   ```csharp
-   public class ExceptionHandlingMiddleware
-   {
-       private readonly RequestDelegate _next;
-       private readonly ILogger<ExceptionHandlingMiddleware> _logger;
-
-       public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
-       {
-           _next = next;
-           _logger = logger;
-       }
-
-       public async Task InvokeAsync(HttpContext context)
-       {
-           try
-           {
-               await _next(context);
-           }
-           catch (Exception ex)
-           {
-               _logger.LogError(ex, "An unhandled exception occurred.");
-               context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-               await context.Response.WriteAsync("An unexpected error occurred.");
-           }
-       }
-   }
-   ```
-
-   Register the middleware in `Startup.cs` or `Program.cs`:
-   ```csharp
-   app.UseMiddleware<ExceptionHandlingMiddleware>();
-   ```
-
----
 
 ### 8. **Use Dependency Injection for Validators**
    - Instead of manually creating validator instances, register them in the DI container and inject them into the controller.
