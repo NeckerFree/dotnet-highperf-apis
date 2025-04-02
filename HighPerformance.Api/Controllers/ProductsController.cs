@@ -17,6 +17,7 @@ namespace HighPerformance.Api.Controllers
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(
             CancellationToken cancellationToken, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
+
             _logger.LogInformation($"Fetching all products");
             var query = new GetProductsQuery { PageNumber = pageNumber, PageSize = pageSize };
             return await HandleRequest(query, cancellationToken);
